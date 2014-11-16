@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 public class JavaRESTExampleIntegrationTest {
 
     @Rule
-    public Destination endpoint = new Destination( this, "http://localhost:8080" );
+    public Destination endpoint = new Destination( this, "http://localhost:8181" );
 
     @Context
     private Response response;

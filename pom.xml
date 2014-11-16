@@ -94,6 +94,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
+                    <port>8181</port>
                     <fullScanSeconds>1</fullScanSeconds>
                     <server>preview.appengine.google.com</server>
                 </configuration>
