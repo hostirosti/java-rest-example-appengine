@@ -3,15 +3,28 @@ package hostirosti;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-public class HelloWorld {
+/**
+ * @author hostirosti
+ */
+public final class HelloWorld {
+    /**
+     * String containing "Hello World! :)".
+     */
     private String helloWorld = "Hello World! :)";
 
+    /**
+     *
+     * @param obj the reference object with which to compare
+     * @return true if object is the same
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof HelloWorld))
+    public boolean equals(final Object obj) {
+        if (!(obj instanceof HelloWorld)) {
             return false;
-        if (obj == this)
+        }
+        if (obj == this) {
             return true;
+        }
 
         HelloWorld helloWorldObj = (HelloWorld) obj;
         return new EqualsBuilder().
@@ -19,6 +32,10 @@ public class HelloWorld {
                 isEquals();
     }
 
+    /**
+     *
+     * @return hash code value for this object
+     */
     @Override
     public int hashCode() {
 

@@ -24,7 +24,7 @@ public class JavaRESTExampleIntegrationTest {
     @Context
     private Response response;
 
-    @HttpTest( method = Method.GET, path = "/" )
+    @HttpTest( method = Method.GET, path = "/api/v1/hello_world" )
     public void checkHelloWorldResponse() {
         assertOk(response);
 

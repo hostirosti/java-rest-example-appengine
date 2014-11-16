@@ -3,30 +3,52 @@ package hostirosti;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+/**
+ * API Information object.
+ * @author hostirosti
+ */
 public final class ApiInfo {
-    private String api_prefix = Constants.API_PREFIX;
-    private String api_version = Constants.API_VERSION;
+    /**
+     * String mapping API_PREFIX from Constants.
+     */
+    private String apiPrefix = Constants.API_PREFIX;
 
+    /**
+     * String mapping API_VERSION from Constants.
+     */
+    private String apiVersion = Constants.API_VERSION;
+
+    /**
+     *
+     * @param obj the reference object with which to compare
+     * @return true if object is the same
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof ApiInfo))
+    public boolean equals(final Object obj) {
+        if (!(obj instanceof ApiInfo)) {
             return false;
-        if (obj == this)
+        }
+        if (obj == this) {
             return true;
+        }
 
         ApiInfo apiInfo = (ApiInfo) obj;
         return new EqualsBuilder().
-                append(api_prefix, apiInfo.api_prefix).
-                append(api_version, apiInfo.api_version).
+                append(apiPrefix, apiInfo.apiPrefix).
+                append(apiVersion, apiInfo.apiVersion).
                 isEquals();
     }
 
+    /**
+     *
+     * @return hash code value for this object
+     */
     @Override
     public int hashCode() {
 
         return new HashCodeBuilder(29, 83).
-                append(api_prefix).
-                append(api_version).
+                append(apiPrefix).
+                append(apiVersion).
                 toHashCode();
     }
 }

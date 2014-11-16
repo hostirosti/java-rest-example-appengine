@@ -97,6 +97,22 @@
                     <fullScanSeconds>1</fullScanSeconds>
                     <server>preview.appengine.google.com</server>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>server-start</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>devserver_start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>server-stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>devserver_stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
