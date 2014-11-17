@@ -10,13 +10,14 @@ import com.eclipsesource.restfuse.annotation.Context;
 
 import com.eclipsesource.restfuse.annotation.HttpTest;
 import com.google.gson.Gson;
-import hostirosti.HelloWorld;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
+import java.util.logging.Logger;
+
 @RunWith( HttpJUnitRunner.class )
-public class JavaRESTExampleIntegrationTest {
+public class JavaRESTExampleIntegrationTest extends JavaRESTExampleTestBase {
 
     /**
      * Construct destination url from environment variables.
@@ -36,6 +37,7 @@ public class JavaRESTExampleIntegrationTest {
         String port = System.getenv("TESTSERVER_ENDPOINT_PORT");
         port = (port == null || port.length() == 0) ? "8080" : port;
 
+        TEST_RESULTS_LOGGER.info("Destination URL: " + protocol + "://" + host + ":" + port);
         return protocol + "://" + host + ":" + port;
     }
 

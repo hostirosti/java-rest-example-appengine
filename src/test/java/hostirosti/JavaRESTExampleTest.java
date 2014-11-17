@@ -16,7 +16,7 @@ import org.junit.runners.JUnit4;
 import javax.ws.rs.core.Response;
 
 @RunWith(JUnit4.class)
-public class JavaRESTExampleTest {
+public class JavaRESTExampleTest extends JavaRESTExampleTestBase {
     JavaRESTExample jre = new JavaRESTExample();
     Gson gson = new Gson();
 
