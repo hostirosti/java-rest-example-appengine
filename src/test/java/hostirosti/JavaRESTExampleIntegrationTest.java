@@ -26,15 +26,15 @@ public class JavaRESTExampleIntegrationTest {
 
         // get protocol, default http
         String protocol = System.getenv("TESTSERVER_ENDPOINT_PROTOCOL");
-        protocol = protocol == null ? "http" : protocol;
+        protocol = (protocol == null || protocol.length() == 0) ? "http" : protocol;
 
         // get host, default localhost
         String host = System.getenv("TESTSERVER_ENDPOINT_HOST");
-        host = host == null ? "localhost" : host;
+        host = (host == null || host.length() == 0) ? "localhost" : host;
 
         // get port, default 8080
         String port = System.getenv("TESTSERVER_ENDPOINT_PORT");
-        port = port == null ? "8080" : port;
+        port = (port == null || port.length() == 0) ? "8080" : port;
 
         return protocol + "://" + host + ":" + port;
     }
