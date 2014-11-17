@@ -11,12 +11,12 @@ public final class ApiInfo {
     /**
      * String mapping API_PREFIX from Constants.
      */
-    private String apiPrefix = Constants.API_PREFIX;
+    private final String apiPrefix = Constants.API_PREFIX;
 
     /**
      * String mapping API_VERSION from Constants.
      */
-    private String apiVersion = Constants.API_VERSION;
+    private final String apiVersion = Constants.API_VERSION;
 
     /**
      *
