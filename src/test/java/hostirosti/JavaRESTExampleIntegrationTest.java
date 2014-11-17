@@ -18,13 +18,34 @@ import org.junit.runner.RunWith;
 @RunWith( HttpJUnitRunner.class )
 public class JavaRESTExampleIntegrationTest {
 
+    /**
+     * Construct destination url from environment variables.
+     * @return destination url
+     */
+    public String getDestinationFromEnvironment() {
+
+        // get protocol, default http
+        String protocol = System.getenv("TESTSERVER_ENDPOINT_PROTOCOL");
+        protocol = protocol == null ? "http" : protocol;
+
+        // get host, default localhost
+        String host = System.getenv("TESTSERVER_ENDPOINT_HOST");
+        host = host == null ? "localhost" : host;
+
+        // get port, default 8080
+        String port = System.getenv("TESTSERVER_ENDPOINT_PORT");
+        port = port == null ? "8080" : port;
+
+        return protocol + "://" + host + ":" + port;
+    }
+
     @Rule
-    public Destination endpoint = new Destination( this, "http://localhost:8181" );
+    public Destination endpoint = new Destination(this, getDestinationFromEnvironment());
 
     @Context
     private Response response;
 
-    @HttpTest( method = Method.GET, path = "/api/v1/hello_world" )
+    @HttpTest(method = Method.GET, path = "/api/v1/hello_world")
     public void checkHelloWorldResponse() {
         assertOk(response);
 
