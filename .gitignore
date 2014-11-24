@@ -15,7 +15,7 @@ gae.properties
 hs_err_pid*
 
 target/
-test/jmeter/
+src/test/jmeter/
 
 # IntelliJ project files
 *.idea/
