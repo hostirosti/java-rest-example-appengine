@@ -50,7 +50,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
           <stringProp name="RestSampler.base_host">${testserver.endpoint.protocol}://${testserver.endpoint.host}/</stringProp>
-          <stringProp name="RestSampler.resource">api/v1/hello_world</stringProp>
+          <stringProp name="RestSampler.resource">api/v1/hello-world</stringProp>
           <stringProp name="RestSampler.port_number">${testserver.endpoint.port}</stringProp>
           <stringProp name="RestSampler.request_headers"></stringProp>
         </com.atlantbh.jmeter.plugins.rest.RestSampler>
@@ -72,7 +72,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/hello_world</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/hello-world</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

@@ -47,7 +47,17 @@ public class JavaRESTExampleIntegrationTest extends JavaRESTExampleTestBase {
     @Context
     private Response response;
 
-    @HttpTest(method = Method.GET, path = "/api/v1/hello_world")
+    @HttpTest(method = Method.GET, path = "/get-api-info")
+    public void checkApiInfoResponse() {
+        assertOk(response);
+
+        Gson gson = new Gson();
+        ApiInfo apiInfo = gson.fromJson(response.getBody(), ApiInfo.class);
+
+        Assert.assertEquals(apiInfo, new ApiInfo());
+    }
+
+    @HttpTest(method = Method.GET, path = "/api/v1/hello-world")
     public void checkHelloWorldResponse() {
         assertOk(response);
 
