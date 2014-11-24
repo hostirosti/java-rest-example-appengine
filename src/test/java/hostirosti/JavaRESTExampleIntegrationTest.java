@@ -1,6 +1,7 @@
 package hostirosti;
 
 import static com.eclipsesource.restfuse.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import com.eclipsesource.restfuse.HttpJUnitRunner;
 import com.eclipsesource.restfuse.Destination;
@@ -51,19 +52,47 @@ public class JavaRESTExampleIntegrationTest extends JavaRESTExampleTestBase {
     public void checkApiInfoResponse() {
         assertOk(response);
 
+        String jsonResponse = response.getBody();
+
+        assertTrue(jsonResponse.contains(Constants.API_PREFIX));
+        assertTrue(jsonResponse.contains(Constants.API_VERSION));
+
         Gson gson = new Gson();
-        ApiInfo apiInfo = gson.fromJson(response.getBody(), ApiInfo.class);
+
+        ApiInfo apiInfo = gson.fromJson(jsonResponse, ApiInfo.class);
 
         Assert.assertEquals(apiInfo, new ApiInfo());
     }
 
-    @HttpTest(method = Method.GET, path = "/api/v1/hello-world")
+    @HttpTest(method = Method.GET, path = Constants.API_PREFIX + Constants.API_VERSION +"/hello-world")
     public void checkHelloWorldResponse() {
         assertOk(response);
 
+        String jsonResponse = response.getBody();
+
+        assertTrue(jsonResponse.contains("Hello World! :)"));
+        assertTrue(jsonResponse.contains("helloWorld"));
+
         Gson gson = new Gson();
-        HelloWorld helloWord = gson.fromJson(response.getBody(), HelloWorld.class);
+        HelloWorld helloWord = gson.fromJson(jsonResponse, HelloWorld.class);
 
         Assert.assertEquals(helloWord, new HelloWorld());
+    }
+
+    @HttpTest(method = Method.GET, path = Constants.API_PREFIX + Constants.API_VERSION +"/marriage-proposal")
+    public void checkMarriageProposalResponse() {
+        assertOk(response);
+
+        String jsonResponse = response.getBody();
+
+        assertTrue(jsonResponse.contains("question"));
+        assertTrue(jsonResponse.contains("JenkinsCI"));
+        assertTrue(jsonResponse.contains("GitHub"));
+        assertTrue(jsonResponse.contains("Google"));
+
+        Gson gson = new Gson();
+        MarriageProposal marriageProposal = gson.fromJson(jsonResponse, MarriageProposal.class);
+
+        Assert.assertEquals(marriageProposal, new MarriageProposal());
     }
 }
