@@ -21,7 +21,7 @@ public class JavaRESTExample {
      * @return Response with ApiInfo object and status code HTTP_OK
      */
     @GET
-    @Path("/get_api_info")
+    @Path("/get-api-info")
     @Produces(MediaType.APPLICATION_JSON)
     public final Response getApiInfo() {
         Gson gson = new Gson();
@@ -33,7 +33,7 @@ public class JavaRESTExample {
      * @return Response with HelloWorld object and status code HTTP_OK
      */
     @GET
-    @Path(Constants.API_PREFIX + Constants.API_VERSION + "/hello_world")
+    @Path(Constants.API_PREFIX + Constants.API_VERSION + "/hello-world")
     @Produces(MediaType.APPLICATION_JSON)
     public final Response getHelloWorld() {
         Gson gson = new Gson();
