@@ -57,7 +57,7 @@
         <hashTree>
           <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="JSON Path Assertion" enabled="true">
             <stringProp name="JSON_PATH">helloWorld</stringProp>
-            <stringProp name="EXPECTED_VALUE">Hello World! :)</stringProp>
+            <stringProp name="EXPECTED_VALUE">Hello Googlers! :)</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
           </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
           <hashTree/>

@@ -10,7 +10,7 @@ public final class HelloWorld {
     /**
      * String containing "Hello World! :)".
      */
-    private String helloWorld = "Hello World! :)";
+    private String helloWorld = "Hello Googlers! :)";
 
     /**
      *
