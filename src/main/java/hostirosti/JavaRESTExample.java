@@ -40,4 +40,17 @@ public class JavaRESTExample {
         return Response.status(OK)
                 .entity(gson.toJson(new HelloWorld())).build();
     }
+
+    /**
+     * REST API endpoint to get Marriage Proposal Answers per HTTP GET.
+     * @return Response with Marriage Proposal object and status code HTTP_OK
+     */
+    @GET
+    @Path(Constants.API_PREFIX + Constants.API_VERSION + "/marriage-proposal")
+    @Produces(MediaType.APPLICATION_JSON)
+    public final Response getMarriageProposal() {
+        Gson gson = new Gson();
+        return Response.status(OK)
+                .entity(gson.toJson(new MarriageProposal())).build();
+    }
 }

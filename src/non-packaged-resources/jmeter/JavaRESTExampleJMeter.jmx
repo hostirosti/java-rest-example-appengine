@@ -50,7 +50,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
           <stringProp name="RestSampler.base_host">${testserver.endpoint.protocol}://${testserver.endpoint.host}/</stringProp>
-          <stringProp name="RestSampler.resource">api/v1/hello-world</stringProp>
+          <stringProp name="RestSampler.resource">api/v2/hello-world</stringProp>
           <stringProp name="RestSampler.port_number">${testserver.endpoint.port}</stringProp>
           <stringProp name="RestSampler.request_headers"></stringProp>
         </com.atlantbh.jmeter.plugins.rest.RestSampler>
@@ -62,34 +62,43 @@
           </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <com.atlantbh.jmeter.plugins.rest.RestSampler guiclass="com.atlantbh.jmeter.plugins.rest.gui.RestGui" testclass="com.atlantbh.jmeter.plugins.rest.RestSampler" testname="Rest Sampler" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/hello-world</stringProp>
+          <stringProp name="RestSampler.request_body"></stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <stringProp name="RestSampler.base_host">${testserver.endpoint.protocol}://${testserver.endpoint.host}/</stringProp>
+          <stringProp name="RestSampler.resource">api/v2/marriage-proposal</stringProp>
+          <stringProp name="RestSampler.port_number">${testserver.endpoint.port}</stringProp>
+          <stringProp name="RestSampler.request_headers"></stringProp>
+        </com.atlantbh.jmeter.plugins.rest.RestSampler>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1070695754">{&quot;helloWorld&quot;:&quot;Hello World! :)&quot;}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">8</intProp>
-          </ResponseAssertion>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="JSON Path Assertion" enabled="true">
+            <stringProp name="JSON_PATH">question</stringProp>
+            <stringProp name="EXPECTED_VALUE">Will you marry me?</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="JSON Path Assertion" enabled="true">
+            <stringProp name="JSON_PATH">answers.GitHub</stringProp>
+            <stringProp name="EXPECTED_VALUE">Hmm,... ok I do!</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="JSON Path Assertion" enabled="true">
+            <stringProp name="JSON_PATH">answers.Google</stringProp>
+            <stringProp name="EXPECTED_VALUE">Is MAYBE an option?</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="JSON Path Assertion" enabled="true">
+            <stringProp name="JSON_PATH">answers.JenkinsCI</stringProp>
+            <stringProp name="EXPECTED_VALUE">I do!</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">

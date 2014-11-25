@@ -13,7 +13,7 @@ public final class Constants {
     /**
      * Api version constant.
      */
-    public static final String API_VERSION = "v1";
+    public static final String API_VERSION = "v2";
 
     /**
      * Disable public constructor.
