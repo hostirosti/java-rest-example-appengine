@@ -70,7 +70,7 @@ public class JavaRESTExampleIntegrationTest extends JavaRESTExampleTestBase {
 
         String jsonResponse = response.getBody();
 
-        assertTrue(jsonResponse.contains("Hello World! :)"));
+        assertTrue(jsonResponse.contains("Hello Googlers! :)"));
         assertTrue(jsonResponse.contains("helloWorld"));
 
         Gson gson = new Gson();

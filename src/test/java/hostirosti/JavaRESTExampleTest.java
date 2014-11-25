@@ -58,7 +58,7 @@ public class JavaRESTExampleTest extends JavaRESTExampleTestBase {
         Response response = jre.getHelloWorld();
         String jsonResponse = (String)response.getEntity();
 
-        assertTrue(jsonResponse.contains("Hello World! :)"));
+        assertTrue(jsonResponse.contains("Hello Googlers! :)"));
         assertTrue(jsonResponse.contains("helloWorld"));
 
         HelloWorld helloWorld = gson.fromJson(jsonResponse, HelloWorld.class);
@@ -76,7 +76,7 @@ public class JavaRESTExampleTest extends JavaRESTExampleTestBase {
 
         assertEquals(helloWorld.hashCode(),
                 new HashCodeBuilder(27, 87).
-                        append("Hello World! :)").
+                        append("Hello Googlers! :)").
                         toHashCode());
     }
 
